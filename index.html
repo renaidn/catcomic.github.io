@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Dinner and a Walk</title>
+        <link rel="icon" href="assets/pawprint.png">
+        <link rel="stylesheet" href="style.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- Importing fonts 'bad script' (dialogues) 'caveat brush' (titles) -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat+Brush&display=swap" rel="stylesheet">
+    </head>
+
+    <body >
+        <audio src="audio_main.mp3" id="audio1" autoplay="true"></audio>
+        <audio src="dark-forest.mp3" id="audio2"></audio>
+        
+        <div class="full" id="title" >
+            <div class="panelcontainer">
+                <img src="non-transparentcat3.svg" style="width: auto; margin-left: 10%;" />
+                <img id="audioicon" onclick="volumeControl()" src="soundon.png" style="position: relative; display: flex; height: 10%; width: auto; left: 10%; bottom: 10%;">
+
+                <h1>
+                    dinner and a walk</h1>
+            </div>
+
+            <!-- Arrow pointing downward -->
+            <div class="downscroll">
+                <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 752.35 464.89">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #fff;
+                            }
+                        </style>
+                    </defs>
+                    <rect class="cls-1" x="270.16" y="179.29" width="532" height="123"
+                        transform="translate(-30.73 439.73) rotate(-44.65)" />
+                    <rect class="cls-1" x="185.45" y="-26.96" width="123" height="532"
+                        transform="translate(-112.98 235.97) rotate(-44.65)" />
+                </svg>
+            </div>
+        </div>
+        <div class="full" id="screen1">
+            <!-- Arrow pointing up -->
+            <div class="upscroll" style="z-index: 10000;">
+                <svg class="uparrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 752.35 464.89">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #fff;
+                            }
+                        </style>
+                    </defs>
+                    <rect class="cls-1" x="270.16" y="179.29" width="532" height="123"
+                        transform="translate(-30.73 439.73) rotate(-44.65)" />
+                    <rect class="cls-1" x="185.45" y="-26.96" width="123" height="532"
+                        transform="translate(-112.98 235.97) rotate(-44.65)" />
+                </svg>
+            </div>
+            <div class="panelcontainer">
+                <div id="panel1" style="overflow: hidden;">
+                    <div class="img-overlay-wrap">
+                        <img src="assets/panel1.jpg"/>
+                        <svg viewBox="0 0 100 100">
+                            <image href="non-transparentcat.svg" height="30px" x="-30" y="60"/>
+                        </svg>
+
+                    </div>
+                    <div id="overlay1" class="cover-layer"></div>
+                    <div style="position:absolute; top:0%; z-index: 9; width: 50%; display: block;" class="squaretext">
+                        <p class="title">
+                            Just another evening in the house. The Cat receives The Food from The Human.
+                        </p>
+                    </div>
+                    <div id="text1" class="textbubble" style="top: 50%; left: 5%; opacity: 0">
+                        <p class="cat">
+                            *sniff*
+                        </p>
+                        <div class="textbubblespike" style="bottom: -1em; left: 1em"></div>
+                    </div>
+                    <div id="text2" class="textbubble" style="top: 65%; left: 15%;; opacity: 0">
+                        <p class="cat">
+                            *sniff*
+                        </p>
+                        <div class="textbubblespike" style="top: 1em; left: -1em; transform: rotate(90deg);"></div>
+                    </div>
+                </div>
+
+                <div id="panel2" style="position: relative; overflow: hidden;">
+
+                    <img src="assets/panel2.jpg" style="position: relative; top: 0; left: 0;"/>
+                        <img class="moving-cat-img" src="walkingcat1.svg" style="display:none;" />
+                        <img class="moving-cat-img" src="walkingcat2.svg" style="display:none;" />
+                        <img class="moving-cat-img" src="walkingcat3.svg" style="display:none;" />
+                        <img class="moving-cat-img" src="walkingcat4.svg" style="display:none;" />
+                    <div id="overlay2" class="cover-layer"></div>
+                    <!-- <div class="cat-move" style="height: 200px; width: 800px; position: relative;"> -->
+                        
+                    <!-- </div> -->
+                    <div id="text3" class="textbubble" style="top: 35%; left: 15%; width: 25% ; opacity: 0">
+                        <p class="cat">
+                            It’s mushy...
+                        </p>
+                        <div class="textbubblespike" style="bottom: -1em; right: 1em; transform: rotate(90deg);"></div>
+                    </div>
+                    <div id="text4" class="textbubble" style="top: 45%; right: 16%; width: 20%; opacity: 0">
+                        <p class="cat">
+                            Too salty!
+                        </p>
+                        <div class="textbubblespike" style="bottom: -1em; left: 1em"></div>
+                    </div>
+                    <!-- <div id="text5" class="textbubble" style="bottom: 2%; left: 5%; width: 25%;">
+                        <p class="cat">
+                            That stinks!
+                        </p>
+                        <div class="textbubblespike" style="top:-1em; right: 1em; transform: rotate(180deg);"></div>
+                    </div> -->
+                    <div id="text6" class="textbubble" style="top: 65%; right: 5%; width: 25%; opacity: 0">
+                        <p class="cat">
+                            I’m surely better than this!
+                        </p>
+                        <div class="textbubblespike" style=" top: 1em; left: -1em; transform: rotate(90deg);"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Arrow pointing downward -->
+            <div class="downscroll">
+                <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 752.35 464.89">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #fff;
+                            }
+                        </style>
+                    </defs>
+                    <rect class="cls-1" x="270.16" y="179.29" width="532" height="123"
+                        transform="translate(-30.73 439.73) rotate(-44.65)" />
+                    <rect class="cls-1" x="185.45" y="-26.96" width="123" height="532"
+                        transform="translate(-112.98 235.97) rotate(-44.65)" />
+                </svg>
+            </div>
+        </div>
+        <div class="full" id="screen2">
+            <!-- Arrow pointing up -->
+            <div class="upscroll" style="z-index: 10000;">
+                <svg class="uparrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 752.35 464.89">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #fff;
+                            }
+                        </style>
+                    </defs>
+                    <rect class="cls-1" x="270.16" y="179.29" width="532" height="123"
+                        transform="translate(-30.73 439.73) rotate(-44.65)" />
+                    <rect class="cls-1" x="185.45" y="-26.96" width="123" height="532"
+                        transform="translate(-112.98 235.97) rotate(-44.65)" />
+                </svg>
+            </div>
+            <div class="panelcontainer">
+                <div id="panel3" >
+                    <div id="text31" class="textbubble" style="top: 35%; left: 3%; width: 15% ; ">
+                        <p class="cat">
+                            A cat like me shouldn’t roam the streets for food...
+                        </p>
+                        <div class="textbubblespike" style="bottom: -1em; right: 1em; transform: rotate(90deg);"></div>
+                    </div>
+                    <div id="text32" class="textbubble" style="bottom: 2%; left: 27%; width: 15%;">
+                        <p class="cat">
+                            Why can’t my Human just give me better food?!
+                        </p>
+                        <div class="textbubblespike" style="top:-1em; right: 1em; transform: rotate(180deg);"></div>
+                    </div>
+                    <div id="text33" class="textbubble" style="top: 40%; left: 53%; width: 15%;">
+                        <p class="cat">
+                            Are these fish even edible? Disgusting...
+                        </p>
+                        <div class="textbubblespike" style="bottom: -1em; left: 1em"></div>
+                    </div>
+                    <div id="text34" class="textbubble" style="top: 18%; right: 3%; width: 15%;">
+                        <p class="cat">
+                            I’m too tired for this, here seems like a good place to rest...
+                        </p>
+                        <div class="textbubblespike" style=" top: 1em; left: -1em; transform: rotate(90deg);"></div>
+                    </div>
+                    <img src="assets/1stscrollpanel.jpg">
+                    <div id="title3" style="position:absolute; top:0%; z-index: 9; width: 25%;" class="squaretext">
+                        <p class="title">
+                            The Cat roams The Street for food that’d fit its Sophisticated Taste...
+                        </p>
+                    </div>
+                        <img class="moving-cat-img-2" src="walkingcat1.svg" style="display:none;" />
+                        <img class="moving-cat-img-2" src="walkingcat2.svg" style="display:none;" />
+                        <img class="moving-cat-img-2" src="walkingcat3.svg" style="display:none;" />
+                        <img class="moving-cat-img-2" src="walkingcat4.svg" style="display:none;" />
+                        <img id="sitting-cat-img" src="non-transparentcat.svg">
+                        
+                    <div id="overlay3" class="cover-layer"></div>
+                    <img id="falling-cat-img" src="non-transparentcat3.svg">
+                </div>
+            </div>
+            <!-- Arrow pointing downward -->
+            <div class="downscroll">
+                <svg class="arrow2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 752.35 464.89">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #fff;
+                            }
+                        </style>
+                    </defs>
+                    <rect class="cls-1" x="270.16" y="179.29" width="532" height="123"
+                        transform="translate(-30.73 439.73) rotate(-44.65)" />
+                    <rect class="cls-1" x="185.45" y="-26.96" width="123" height="532"
+                        transform="translate(-112.98 235.97) rotate(-44.65)" />
+                </svg>
+            </div>
+        </div>
+        <div id="fall" style="height: 300vh">
+            <!-- this empty big div gives the impression of a large fall -->
+            <p class="title" style="font-size: 300px; color: white; top:50px">AAAAAAAAA!</p>
+        </div>
+        <div class="full" id="screen3">
+            <!-- Arrow pointing up -->
+            <div class="upscroll" style="z-index: 10000;">
+                <svg class="uparrow2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 752.35 464.89">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #fff;
+                            }
+                        </style>
+                    </defs>
+                    <rect class="cls-1" x="270.16" y="179.29" width="532" height="123"
+                        transform="translate(-30.73 439.73) rotate(-44.65)" />
+                    <rect class="cls-1" x="185.45" y="-26.96" width="123" height="532"
+                        transform="translate(-112.98 235.97) rotate(-44.65)" />
+                </svg>
+            </div>
+            <div class="panelcontainer">
+                <div id="panel4">
+                    <img src="assets/panel4.png" style="position: relative; top: 0; left: 0">
+                    <div id="overlay4" class="cover-layer"></div>
+                    <img id="catface" src="catface.svg" style="position: absolute; display: flex; height: 50%; width: auto; top: 25%; left: 25%; opacity: 0">
+                    
+                    
+                    <div id="title4" style="position:absolute; top:0%; z-index: 9; width: 30%;" class="squaretext">
+                        <p class="title">
+                            The trash can was <b>a trap</b>!
+                        </p>
+                    </div>
+                    <!-- text bubbles -->
+                    <div id="text42" class="textbubble" style="top: 15%; left: 3%; width: 25% ; opacity: 0">
+                        <p class="cat">
+                            What is this place? Surely not the <em>Cat Underworld</em>...
+                        </p>
+                        <div class="textbubblespike" style="bottom: -1em; right: 1em; transform: rotate(90deg);"></div>
+                    </div>
+                    <div id="text43" class="textbubble" style="top: 17%; right: 10%; width: 20%; opacity: 0">
+                        <p class="cat">
+                            <b>AAAAAAAAAAA!</b>
+                        </p>
+                        <div class="textbubblespike" style="bottom: -1em; left: 1em"></div>
+                    </div>
+                    <div id="text44" class="textbubble" style="top: 65%; left: 5%; width: 25%; opacity: 0">
+                        <p class="cat">
+                            I mean, a cat like me? In the <em>Cat Underworld</em>? Unheard of...
+                        </p>
+                        <div class="textbubblespike" style="top:-1em; right: 1em; transform: rotate(180deg);"></div>
+                    </div>
+                    <div id="text45" class="textbubble" style="top: 60%; right: 3%; width: 25%; opacity: 0">
+                        <p class="cat">
+                            I've been a good cat. Actually, a <em>great</em> cat. One of the best cats in the history of
+                            cats.
+                        </p>
+                        <div class="textbubblespike" style=" top: 1em; left: -1em; transform: rotate(90deg);"></div>
+                    </div>
+
+                </div>
+                <div id="panel5">
+                    
+                    <img src="assets/panel5.png">
+                    <div id="overlay5" class="cover-layer"></div>
+                    <div id="title5" style="position:absolute; top:0%; z-index: 9; width: 85%; opacity: 0" class="squaretext">
+                        <p class="title">
+                            It is indeed the <b>CAT UNDERWORLD!</b> They say greedy
+                            cats are sent here to pay for their deeds...
+                        </p>
+                    </div>
+                    <img id="cat-stairs" src="walkingcat1.svg" style="position: absolute; display: flex; height: 20%; width: auto; top: 35%; left: 50%; transform: rotate(-60deg); opacity: 0" />
+                    <div id="text51" class="textbubble" style="top: 30%; left: 3%; width: 25% ; opacity: 0">
+                        <p class="cat" >
+                            This is horrendous!
+                        </p>
+                        <div class="textbubblespike" style="top: -1em; right: 1em; transform: rotate(180deg);"></div>
+                    </div>
+                    <div id="text52" class="textbubble" style="bottom: 3%; right: 5%; width: 20%; opacity: 0">
+                        <p class="cat">
+                            PLEASE, SOMEBODY HELP ME!
+                        </p>
+                        <div class="textbubblespike" style="top: -1em; left: 2em; transform: rotate(270deg);"></div>
+                    </div>
+                    <div id="text53" class="textbubble" style="bottom: 10%; left: 10%; width: 25%; opacity: 0">
+                        <p class="cat" >
+                            I shouldn’t have left home...
+                        </p>
+                        <div class="textbubblespike" style="top:-1em; left: 1em; transform: rotate(180deg);"></div>
+                    </div>
+                    <!-- TODO - at the end of the interactivity, hide all dialogues and change the image in panel 6 to "assets/panel6 final.svg" -->
+                </div>
+            </div>
+            <div class="downscroll">
+                <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 752.35 464.89">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #fff;
+                            }
+                        </style>
+                    </defs>
+                    <rect class="cls-1" x="270.16" y="179.29" width="532" height="123"
+                        transform="translate(-30.73 439.73) rotate(-44.65)" />
+                    <rect class="cls-1" x="185.45" y="-26.96" width="123" height="532"
+                        transform="translate(-112.98 235.97) rotate(-44.65)" />
+                </svg>
+            </div>
+        </div>
+        <div class="full" id="screen4">
+            <!-- Arrow pointing up -->
+            <div class="upscroll" style="z-index: 10000;">
+                <svg class="uparrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 752.35 464.89">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #fff;
+                            }
+                        </style>
+                    </defs>
+                    <rect class="cls-1" x="270.16" y="179.29" width="532" height="123"
+                        transform="translate(-30.73 439.73) rotate(-44.65)" />
+                    <rect class="cls-1" x="185.45" y="-26.96" width="123" height="532"
+                        transform="translate(-112.98 235.97) rotate(-44.65)" />
+                </svg>
+            </div>
+            <div class="panelcontainer">
+                <div id="panel6" style="overflow: hidden;">
+                    <img id="panel6-img" src="assets/panel6.png">
+                    <div id="overlay6" class="cover-layer"></div>
+
+                    <img class="moving-cat-img-3" src="walkingcat1.svg" style="display:none;" />
+                    <img class="moving-cat-img-3" src="walkingcat2.svg" style="display:none;" />
+                    <img class="moving-cat-img-3" src="walkingcat3.svg" style="display:none;" />
+                    <img class="moving-cat-img-3" src="walkingcat4.svg" style="display:none;" />
+                    <div  style="position:absolute; top:0%; z-index: 9; width: 25%;" class="squaretext">
+                        <p id="title6" class="title">
+                            The Cat reached the gates of the <b>CAT UNDERWORLD!</b>. Only one of them will let him out...
+                        </p>
+                    </div>
+                    <div id="text61" class="textbubble" style="top: 25%; left: 3%; width: 15% ; opacity: 0">
+                        <p class="cat">
+                            An exit! Let me peek, maybe they’ll take me somewhere...
+                        </p>
+                        <div class="textbubblespike" style="bottom: -1em; right: 1em; transform: rotate(90deg);"></div>
+                    </div>
+                    <div id="text62" class="textbubble" style="top: 25%; left: 28%; width: 15%; opacity: 0">
+                        <p class="cat">
+                            This doesn’t seem like home...
+                        </p>
+                        <div class="textbubblespike" style="bottom: -1em; left: 1em"></div>
+                    </div>
+                    <div id="text63" class="textbubble" style="top: 85%; left: 53%; width: 15%; opacity: 0">
+                        <p class="cat">
+                            I’m afraid of going there...
+                        </p>
+                        <div class="textbubblespike" style="top:-1em; left: 1em; transform: rotate(270deg);"></div>
+                    </div>
+                    <div id="text64" class="textbubble" style="top: 85%; right: 3%; width: 15%; opacity: 0">
+                        <p class="cat">
+                            It’s no use.
+                        </p>
+                        <div class="textbubblespike" style="top:-1em; left: 1em; transform: rotate(270deg);"></div>
+                    </div>
+                    <img id="sitting-cat-img-2" src="non-transparentcat.svg">
+
+
+                </div>
+            </div>
+            <!-- Arrow pointing downward -->
+            <div class="downscroll">
+                <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 752.35 464.89">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #fff;
+                            }
+                        </style>
+                    </defs>
+                    <rect class="cls-1" x="270.16" y="179.29" width="532" height="123"
+                        transform="translate(-30.73 439.73) rotate(-44.65)" />
+                    <rect class="cls-1" x="185.45" y="-26.96" width="123" height="532"
+                        transform="translate(-112.98 235.97) rotate(-44.65)" />
+                </svg>
+            </div>
+        </div>
+        <div class="full" id="credits">
+            <p class="credits">Adina Maratkyzy
+            <br>Elina Aghabekyan
+            <br>Juan Piñeros
+            <br>Nouf AlNuaimi<br><br></p>
+            <p class="sub">
+                new york university abu dhabi - commlab summer 2021
+            </p>
+        </div>
+    </body>
+    <script src="script.js"></script> 
+
+</html>
